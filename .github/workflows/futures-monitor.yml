@@ -54,6 +54,10 @@ jobs:
       run: |
         python3 volume_monitor.py
     
+    - name: Run Anomaly Monitor
+      run: |
+        python3 anomaly_monitor.py
+    
     - name: Run Pivot Points Analysis
       run: |
         python3 pivot_points.py
