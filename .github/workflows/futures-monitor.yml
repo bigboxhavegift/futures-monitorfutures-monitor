@@ -44,6 +44,10 @@ jobs:
       run: |
         python3 rsi_report.py
     
+    - name: Run Volume Surge Monitor
+      run: |
+        python3 volume_monitor.py
+    
     - name: Setup Pages
       uses: actions/configure-pages@v4
     
