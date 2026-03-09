@@ -99,7 +99,8 @@ td{{padding:10px;text-align:center;border-bottom:1px solid #ddd}}
 </style></head><body>
 <div class='container'>
 <h1>📊 期货枢轴点分析</h1>
-<p>基于今日高低收计算 | {timestamp}</p>
+<p>基于今日实时行情计算 | {timestamp}</p>
+<p style="color:#ff6b6b;font-size:0.9em;">⚠️ 注意：本报告使用当日已产生的最高/最低/结算价计算，非前一交易日数据。GitHub Actions 环境无法稳定获取历史日K。</p>
 <table>
 <tr><th>品种</th><th>现价</th><th style='color:#ffccc7'>S2</th><th style='color:#ffccc7'>S1</th><th>PP</th><th style='color:#d4edda'>R1</th><th style='color:#d4edda'>R2</th></tr>
 {rows}
