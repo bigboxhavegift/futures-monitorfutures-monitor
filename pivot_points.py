@@ -61,7 +61,7 @@ def get_daily_data(symbol_code):
     """获取日K数据（最近2天）"""
     try:
         # 使用akshare获取期货日线数据
-        df = ak.futures_zh_daily(symbol=symbol_code)
+        df = ak.futures_zh_daily_sina(symbol=symbol_code)
         if df is not None and len(df) >= 2:
             # 获取最近一个完整交易日数据
             df = df.sort_values('date', ascending=True)
@@ -80,7 +80,7 @@ def get_weekly_data(symbol_code):
     """获取周K数据（最近2周）"""
     try:
         # 获取日线数据后按周聚合
-        df = ak.futures_zh_daily(symbol=symbol_code)
+        df = ak.futures_zh_daily_sina(symbol=symbol_code)
         if df is not None and len(df) >= 10:
             df = df.sort_values('date', ascending=True)
             df['date'] = pd.to_datetime(df['date'])
