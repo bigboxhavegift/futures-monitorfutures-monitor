@@ -1,8 +1,8 @@
-name: Futures Monitor
+name: Futures Monitor - Multi Reports
 
 on:
   schedule:
-    # 交易日每30分钟运行 (UTC时间，需要换算)
+    # 交易日每30分钟运行 (UTC时间)
     # 09:00-15:00 CST = 01:00-07:00 UTC
     # 21:00-23:00 CST = 13:00-15:00 UTC
     - cron: '*/30 1-7,13-15 * * 1-5'
@@ -32,9 +32,17 @@ jobs:
       run: |
         pip install akshare pandas numpy
     
-    - name: Run futures monitor
+    - name: Run Futures Monitor (Main)
       run: |
         python3 futures_monitor.py
+    
+    - name: Run Aluminum Report
+      run: |
+        python3 aluminums_report.py
+    
+    - name: Run RSI Report
+      run: |
+        python3 rsi_report.py
     
     - name: Setup Pages
       uses: actions/configure-pages@v4
