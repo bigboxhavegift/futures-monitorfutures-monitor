@@ -5,14 +5,14 @@
 
 import akshare as ak
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 import sys
 
 def main():
     print("="*60)
     print("成交量异动监控")
-    print(f"时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"时间: {beijing_time.strftime('%Y-%m-%d %H:%M:%S')} (北京时间)")
     print("="*60)
     
     # 确保docs目录存在
@@ -59,7 +59,9 @@ def main():
     print(f"\n✅ 检查完成，{len(surge_list)} 个品种活跃")
     
     # 生成简单HTML
-    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    # 获取北京时间 (UTC+8)
+    beijing_time = datetime.utcnow() + timedelta(hours=8)
+    timestamp = beijing_time.strftime('%Y-%m-%d %H:%M:%S')
     
     rows = ""
     for item in surge_list:
