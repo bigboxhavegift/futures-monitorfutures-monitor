@@ -38,7 +38,7 @@ jobs:
     
     - name: Run Aluminum Report
       run: |
-        python3 aluminums_report.py
+        python3 aluminum_report.py
     
     - name: Run RSI Report
       run: |
