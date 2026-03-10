@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期货主力合约RSI监控 - 2026-03-10 11:28:18</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            padding: 30px 20px;
+        }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        .header p { font-size: 1.1em; opacity: 0.9; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        .stat-number { font-size: 2em; font-weight: bold; margin-bottom: 5px; }
+        .stat-label { font-size: 0.9em; opacity: 0.8; }
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        .oversold-icon { background: linear-gradient(135deg, #ff6b6b, #ee5a5a); }
+        .overbought-icon { background: linear-gradient(135deg, #52c41a, #389e0d); }
+        .all-icon { background: linear-gradient(135deg, #4ecdc4, #44a08d); }
+        .card-title { font-size: 1.5em; color: #333; font-weight: 600; }
+        .card-subtitle { color: #888; font-size: 0.9em; margin-top: 5px; }
+        .badge {
+            background: #f0f0f0;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        th:first-child { border-radius: 8px 0 0 0; }
+        th:last-child { border-radius: 0 8px 0 0; }
+        td { padding: 14px 12px; border-bottom: 1px solid #f0f0f0; }
+        tr:hover { background: #f8f9fa; }
+        tr:last-child td { border-bottom: none; }
+        .footer {
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8em; }
+            .card { padding: 15px; }
+            th, td { padding: 10px 8px; font-size: 0.9em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 期货主力合约RSI监控</h1>
+            <p>基于日K计算的RSI指标 | 上午收盘</p>
+            <p style="margin-top:10px;font-size:0.95em;">2026-03-10 11:28:18</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">37</div>
+                <div class="stat-label">监控品种</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" style="color:#ff4d4f">0</div>
+                <div class="stat-label">RSI超卖(&lt;30)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" style="color:#52c41a">0</div>
+                <div class="stat-label">RSI超买(&gt;70)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" style="color:#faad14">37</div>
+                <div class="stat-label">正常区间</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon oversold-icon">📉</div>
+                <div>
+                    <div class="card-title">RSI超卖区 | RSI &lt; 30</div>
+                    <div class="card-subtitle">可能存在反弹机会 | 发现 0 个品种</div>
+                </div>
+            </div>
+            <p style="text-align:center;padding:40px;color:#999;">当前无超卖品种</p>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon overbought-icon">📈</div>
+                <div>
+                    <div class="card-title">RSI超买区 | RSI &gt; 70</div>
+                    <div class="card-subtitle">注意回调风险 | 发现 0 个品种</div>
+                </div>
+            </div>
+            <p style="text-align:center;padding:40px;color:#999;">当前无超买品种</p>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon all-icon">📊</div>
+                <div>
+                    <div class="card-title">全部品种RSI排行</div>
+                    <div class="card-subtitle">按RSI从低到高排序</div>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr><th>交易所</th><th>品种</th><th>RSI</th><th>现价</th><th>涨跌</th></tr>
+                </thead>
+                <tbody>
+        <tr>
+            <td><span class="badge" style="background:#1890ff20;color:#1890ff">上期所</span></td>
+            <td>沪铜<br><small>CU0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>101620</td>
+            <td style="color:#52c41a">+1.74%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#1890ff20;color:#1890ff">上期所</span></td>
+            <td>沪铝<br><small>AL2604</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>24795</td>
+            <td style="color:#ff4d4f">-1.65%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#1890ff20;color:#1890ff">上期所</span></td>
+            <td>沪锌<br><small>ZN0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>24370</td>
+            <td style="color:#52c41a">+0.18%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#1890ff20;color:#1890ff">上期所</span></td>
+            <td>沪铅<br><small>PB0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>16685</td>
+            <td style="color:#ff4d4f">-0.42%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#1890ff20;color:#1890ff">上期所</span></td>
+            <td>沪镍<br><small>NI0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>137250</td>
+            <td style="color:#52c41a">+0.87%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#1890ff20;color:#1890ff">上期所</span></td>
+            <td>沪锡<br><small>SN0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>393710</td>
+            <td style="color:#52c41a">+2.49%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#1890ff20;color:#1890ff">上期所</span></td>
+            <td>螺纹钢<br><small>RB0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>3106</td>
+            <td style="color:#ff4d4f">-0.35%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#1890ff20;color:#1890ff">上期所</span></td>
+            <td>热轧卷板<br><small>HC0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>3258</td>
+            <td style="color:#ff4d4f">-0.12%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#1890ff20;color:#1890ff">上期所</span></td>
+            <td>沥青<br><small>BU2604</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>3715</td>
+            <td style="color:#ff4d4f">-5.57%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#1890ff20;color:#1890ff">上期所</span></td>
+            <td>橡胶<br><small>RU0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>17000</td>
+            <td style="color:#ff4d4f">-0.35%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#1890ff20;color:#1890ff">上期所</span></td>
+            <td>纸浆<br><small>SP0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>5256</td>
+            <td style="color:#ff4d4f">-1.98%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#1890ff20;color:#1890ff">上期所</span></td>
+            <td>不锈钢<br><small>SS0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>14270</td>
+            <td style="color:#52c41a">+1.13%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#52c41a20;color:#52c41a">大商所</span></td>
+            <td>铁矿石<br><small>I0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>782</td>
+            <td style="color:#52c41a">+0.06%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#52c41a20;color:#52c41a">大商所</span></td>
+            <td>焦炭<br><small>J0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>1686</td>
+            <td style="color:#ff4d4f">-4.15%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#52c41a20;color:#52c41a">大商所</span></td>
+            <td>焦煤<br><small>JM0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>1126</td>
+            <td style="color:#ff4d4f">-3.51%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#52c41a20;color:#52c41a">大商所</span></td>
+            <td>豆粕<br><small>M0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>2958</td>
+            <td style="color:#ff4d4f">-1.60%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#52c41a20;color:#52c41a">大商所</span></td>
+            <td>豆油<br><small>Y0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>8496</td>
+            <td style="color:#ff4d4f">-2.55%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#52c41a20;color:#52c41a">大商所</span></td>
+            <td>玉米<br><small>C0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>2379</td>
+            <td style="color:#ff4d4f">-1.29%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#52c41a20;color:#52c41a">大商所</span></td>
+            <td>PVC<br><small>V0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>5149</td>
+            <td style="color:#ff4d4f">-4.98%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#52c41a20;color:#52c41a">大商所</span></td>
+            <td>乙二醇<br><small>EG0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>4275</td>
+            <td style="color:#ff4d4f">-5.92%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#52c41a20;color:#52c41a">大商所</span></td>
+            <td>苯乙烯<br><small>EB0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>9860</td>
+            <td style="color:#52c41a">+2.93%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#52c41a20;color:#52c41a">大商所</span></td>
+            <td>液化石油气<br><small>PG0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>5236</td>
+            <td style="color:#ff4d4f">-5.11%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#52c41a20;color:#52c41a">大商所</span></td>
+            <td>玉米淀粉<br><small>CS0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>2699</td>
+            <td style="color:#ff4d4f">-1.10%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#faad1420;color:#faad14">郑商所</span></td>
+            <td>PTA<br><small>TA0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>6104</td>
+            <td style="color:#ff4d4f">-3.08%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#faad1420;color:#faad14">郑商所</span></td>
+            <td>棉花<br><small>CF0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>15335</td>
+            <td style="color:#ff4d4f">-0.58%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#faad1420;color:#faad14">郑商所</span></td>
+            <td>白糖<br><small>SR0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>5397</td>
+            <td style="color:#ff4d4f">-1.30%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#faad1420;color:#faad14">郑商所</span></td>
+            <td>纯碱<br><small>SA0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>1240</td>
+            <td style="color:#ff4d4f">-4.10%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#faad1420;color:#faad14">郑商所</span></td>
+            <td>玻璃<br><small>FG0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>1076</td>
+            <td style="color:#ff4d4f">-4.44%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#faad1420;color:#faad14">郑商所</span></td>
+            <td>硅铁<br><small>SF0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>5886</td>
+            <td style="color:#ff4d4f">-2.42%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#faad1420;color:#faad14">郑商所</span></td>
+            <td>锰硅<br><small>SM0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>6118</td>
+            <td style="color:#ff4d4f">-2.08%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#faad1420;color:#faad14">郑商所</span></td>
+            <td>短纤<br><small>PF2604</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>7766</td>
+            <td style="color:#ff4d4f">-0.23%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#faad1420;color:#faad14">郑商所</span></td>
+            <td>尿素<br><small>UR0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>1854</td>
+            <td style="color:#ff4d4f">-3.74%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#f5222d20;color:#f5222d">能源中心</span></td>
+            <td>原油<br><small>SC0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>683</td>
+            <td style="color:#ff4d4f">-8.47%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#f5222d20;color:#f5222d">能源中心</span></td>
+            <td>低硫燃料油<br><small>LU0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>4879</td>
+            <td style="color:#ff4d4f">-2.40%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#f5222d20;color:#f5222d">能源中心</span></td>
+            <td>20号胶<br><small>NR0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>13675</td>
+            <td style="color:#ff4d4f">-0.58%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#722ed120;color:#722ed1">广期所</span></td>
+            <td>碳酸锂<br><small>LC0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>161260</td>
+            <td style="color:#52c41a">+3.04%</td>
+        </tr>
+        <tr>
+            <td><span class="badge" style="background:#722ed120;color:#722ed1">广期所</span></td>
+            <td>工业硅<br><small>SI0</small></td>
+            <td style="color:#666;font-weight:bold;">50</td>
+            <td>8640</td>
+            <td style="color:#ff4d4f">-1.71%</td>
+        </tr></tbody>
+            </table>
+        </div>
+        
+        <div class="footer">
+            <p>⚠️ 本报告仅供参考，不构成投资建议 | 数据来自AKShare/东方财富</p>
+            <p style="margin-top:10px;opacity:0.6">RSI周期：14日 | 主力合约自动识别</p>
+        </div>
+    </div>
+</body>
+</html>
